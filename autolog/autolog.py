@@ -49,5 +49,20 @@ def timer(func):
         return result
     return wrapper
 
+def save():
+    with open("logs.txt", "w") as file:
+        for name, val in _data.items():
+            file.write(f"{name}:{val}\n")
 
-
+def init_log(path):
+    global _data
+    try:
+        with open("logs.txt", "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line or ":" not in line:
+                    continue
+                name, val = line.split(":", 1)
+                name = name.strip()
+                val = val.strip()
+                _data[name] = val
