@@ -35,3 +35,35 @@ cfg = autoconfig.Config(
 
 print(cfg.lr)          # 0.001
 print(cfg.as_dict())   # {'lr': 0.001, 'batch_size': 32, 'epochs': 10, 'model_name': 'resnet18', 'data_path': './data'}
+```
+
+### 2. Autolog
+`autolog` is a **simple and effective library* that simplifies logging of different tasks in python, while providing data dependig on those. Perfect for readability and collaboration on python projects with timable measurements
+
+#### Features
+
+- Setting logs such as INFO and METRIC with automatic timestamps
+- saving logs directly to a local text file for easy access
+- Easy changability for logs to prevent errors
+
+#### Example Usage
+```python
+from autolog import info, get_log, set_log, change_log_entry, save
+info("Program started")
+info("Performing initial setup")
+info("Setup complete")
+
+# View current logs
+logs = get_log()
+print("Current Logs:\n", logs)
+
+# Change a specific log entry
+# (for demonstration, change the first timestamp entry)
+timestamps = list(_data.keys())
+if timestamps:
+    change_log_entry(timestamps[0], "Program successfully started")
+
+# Save logs to file
+save()
+print("Logs saved to logs.txt")
+```
