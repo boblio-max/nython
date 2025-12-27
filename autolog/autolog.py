@@ -66,3 +66,5 @@ def init_log(path):
                 name = name.strip()
                 val = val.strip()
                 _data[name] = val
+    except Exception:
+        pass
